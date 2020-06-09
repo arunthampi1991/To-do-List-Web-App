@@ -33,7 +33,7 @@ function validate()
     }
 
     else 
-         
+    //callback     
   {
     function reject(){
       console.log("rejected");
@@ -42,22 +42,28 @@ function validate()
       alert("Wrong Username or Password");
   }
   
-  function check(a,b,call){
+  function approved(){
+    console.log("approved");
+    document.write("Redirecting....."); 
+    setTimeout(function(){window.location = "main.html";}, 500); 
+  }
+  function check(a,b,done){
     if(x=="admin" && y=="12345"){
-      console.log("approved");
-      document.write("Redirecting....."); 
-      setTimeout(function(){window.location = "main.html";}, 100); 
-      
+     
+      done();
       }
-      else
-      call();
+    
+      reject();
   }
   
   var x = username.value;
-        var y = password.value;
-  check(x,y,reject);
-  }
+  var y = password.value;
+  check(x,y,approved);
+  
+
   }
 
+
+  }
   
 

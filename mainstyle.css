@@ -49,3 +49,11 @@
     display: none;
     text-align: center;
   }
+
+  #button1{
+    border-radius: 10px;
+  }
+  #button1:hover{
+    background-color: #c0c0c0;
+    
+  }

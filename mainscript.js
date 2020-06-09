@@ -36,26 +36,36 @@ $('#button1').click(function () {
     let count = 0;
 $("#myTable").on("change", ":checkbox", function () {
   var status=this.checked;
-  var promise = new Promise(function (resolve) {
-        if(status === true)
-        count++ ;
-        else
-        if(status ===false)
-        count--;
-        console.log(count,status);
-        if (count == 5) {
-            resolve("Congrats! 5 Tasks have been completed successfully!");
-        }
-    });
-    promise
-        .then(function (test) {
-            alert(test);
-            count = 0;
-        });
+  var promise = new Promise(function (resolve,reject) {
+    if(status === true)
+    count++ ;
+    else
+    if(status ===false)
+    count--;
+    console.log(count,status);
+    if (count == 5) {
+        resolve("Congrats! 5 Tasks have been completed successfully!");
+    }
+    else
+    if(count>5)
+    {
+      
+      reject(" 5 Tasks are already done. Total Tasks done : ")
+    }
+});
+promise
+    .then(function (test) {
+        alert(test);
+       
+    })
+    .catch(function(done){
+      alert(done + count);
+   
+    })
 });
 
 });
-
+//animation
 var myVar;
 
 function myFunction() {
